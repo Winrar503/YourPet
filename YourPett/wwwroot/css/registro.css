@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    align-items: center;
+    background: #55C1A0;
+    color: rgba(0, 0, 0, 0.8);
+    display: grid;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    height: 100vh;
+    justify-items: center;
+    weight: 100vw;
+}
+
+/* xdxdxd */
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    width: 100%;
+}
+
+/* donde va la imagen */
+.left-container {
+    background-color: transparent;
+    overflow: hidden;
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Agrega una sombra */
+    border: 5px solid black; /* Agrega un borde negro */
+}
+
+
+.left-container h1 {
+    color: rgba(0, 0, 0, 0.8);
+    display: inline-block;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.left-container h1 i {
+    background: #f7b1ab;
+    border-radius: 50%;
+    padding: 10px;
+    transform: rotate(-45deg);
+}
+
+.left-container .puppy {
+    text-align: center;
+    top: -20px;
+    /* Ajusta la posición vertical de la imagen */
+    left: 1%;
+    /* Centra la imagen horizontalmente */
+    transform: translateX(-1%);
+}
+
+.left-container .puppy:before {
+    content: "";
+    height: 100%;
+    left: 0;
+    
+    width: 100%;
+    z-index: 1;
+}
+
+.left-container img {
+    
+    width: 70%;
+    max-width: 100%;
+}
+
+/* contenedor de los registro que tengo de las mascotas */
+.right-container {
+    background: #D9D9D9;
+    max-width: 100%;
+    width: 100%;
+    padding: 20px;
+}
+
+.right-container h1:nth-of-type(1) {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.right-container .set {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.right-container input {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 5px;
+}
+
+.right-container input,
+.right-container label {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.right-container header {
+    padding: 40px;
+}
+
+.right-container label,
+.right-container input,
+.right-container .pets-photo {
+    width: 176px;
+}
+
+.right-container .pets-photo {
+    align-items: center;
+    display: grid;
+    grid-template-areas: ". .";
+}
+
+.right-container .pets-photo button {
+    border: none;
+    border-radius: 50%;
+    height: 38px;
+    margin-right: 10px;
+    outline: none;
+    width: 38px;
+}
+
+.right-container .pets-photo button i {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 16px;
+}
+
+.right-container .pets-weight .radio-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.right-container footer {
+    align-items: center;
+    background: #fff;
+    display: grid;
+    padding: 5px 40px;
+}
+
+.right-container footer button {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    height: 38px;
+    line-height: 38px;
+    width: 100px;
+    border-radius: 19px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.right-container footer #back {
+    background: #fff;
+    transition: 0.2s all ease-in-out;
+}
+
+.right-container footer #back:hover {
+    background: #171a2b;
+    color: white;
+}
+
+.right-container footer #next {
+    background: #55C1A0;
+    border: 1px solid transparent;
+    color: #fff;
+}
+
+.right-container footer #next:hover {
+    background: #171a2b;
+}
+
+.pets-name label,
+.pets-breed label,
+.pets-birthday label,
+.pets-gender label,
+.pets-spayed-neutered label,
+.pets-weight label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.radio-container {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    display: inline-block;
+    padding: 5px;
+}
+
+.radio-container label {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: 0.2s all ease-in-out;
+    width: 80px;
+}
+
+.radio-container input[type=radio] {
+    display: none;
+}
+
+.radio-container input[type=radio]:checked+label {
+    background: #55C1A0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
