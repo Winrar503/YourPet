@@ -1,6 +1,8 @@
 ﻿using System.Net;
 using System.Text;
 using YourPett.Models; // Agregar la referencia a YourPett.Models
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace YourPett.Services
 {
