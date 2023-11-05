@@ -1,4 +1,8 @@
 ﻿@page "/Registro"
+@using YourPett.Models
+@using YourPett.Services
+@inject IRegistroAnimalService Service
+
 <link rel="stylesheet" href="/css/registro.css" />
 <div class='signup-container'>
     <div class='left-container'>
@@ -74,8 +78,74 @@
         <footer>
             <div class='set'>
                 <button id='back'>Back</button>
-                <button id='next'>Next</button>
+                <button id='next' @onclick="OnInitializedAsync">Next</button>
             </div>
         </footer>
     </div>
 </div>
+
+
+
+@code {
+    List<RegistroAnimal> _registros;
+    bool showModal = false;
+    RegistroAnimal nuevoRegistro = new RegistroAnimal();
+
+    [Inject]
+    private IRegistroAnimalService service { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _registros = await service.ObtenerRegistro();
+    }
+
+    private void Dialogo()
+    {
+        showModal = !showModal;
+    }
+
+    private async Task AgregarRegistro()
+    {
+        var registroCreado = await service.CrearRegistro(nuevoRegistro);
+
+        if (registroCreado != null)
+        {
+            // Registro guardado con éxito
+            showModal = true;
+            nuevoRegistro = new RegistroAnimal(); // Limpia los campos del formulario
+        }
+    }
+}
+
+@* @code {
+    private string? url = "https://example-rest-api-9qjo.onrender.com/api/usuario";
+    List<RegistroAnimal> _registros;
+    bool showModal = false;
+    RegistroAnimal nuevoRegistro = new RegistroAnimal();
+
+    [Inject]
+    private IRegistroAnimalService service { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _registros = await service.ObtenerRegistro();
+    }
+
+    private void Dialogo()
+    {
+        showModal = !showModal;
+    }
+
+    private async Task AgregarRegistro()
+    {
+        var registroCreado = await service.CrearRegistro(nuevoRegistro);
+
+        if (registroCreado != null)
+        {
+           
+            showModal = true;
+            nuevoRegistro = new RegistroAnimal();
+        }
+    }
+}
+ *@

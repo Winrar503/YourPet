@@ -1,4 +1,13 @@
 ﻿@page "/Login"
+
+@using YourPett.Models
+@using YourPett.Services
+@inject NavigationManager Navigator;
+@inject IUsuarioService service
+@inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
+
+
+
 <link rel="stylesheet" href="/css/index.css" />
 <div class="main">
     <input type="checkbox" id="chk" aria-hidden="true">
@@ -6,10 +15,10 @@
     <div class="signup">
         <form>
             <label for="chk" aria-hidden="true">Sign up</label>
-            <input type="text" name="txt" placeholder="User name" required="">
+            <input type="text" name="txt" placeholder="Nombre" required="">
             <input type="email" name="email" placeholder="Email" required="">
-            <input type="password" name="pswd" placeholder="Password" required="">
-            <button>Sign up</button>
+            <input type="password" name="pswd" placeholder="Contrasena" required="">
+            <button type="submit">Sign up</button>
         </form>
     </div>
 
@@ -17,8 +26,29 @@
         <form>
             <label for="chk" aria-hidden="true">Login</label>
             <input type="email" name="email" placeholder="Email" required="">
-            <input type="password" name="pswd" placeholder="Password" required="">
+            <input type="password" name="pswd" placeholder="Contrasena" required="">
             <button>Login</button>
         </form>
     </div>
 </div>
+@code {
+    private bool isLoggedIn = false;
+    private Usuarios usuario = new Usuarios(); // utilizar la clase de la carpeta Data como modelo del formulario
+    private async Task IniciarSesion()
+    {
+        try
+        {
+            var result = await service.IniciarSesion(usuario);
+            if (result != null)
+            {
+                NavigationManager.NavigateTo("/Index"); // Cambia la ruta según tus necesidades
+
+            }
+        }
+        catch (Exception ex)
+        {
+            // mensajeError = ex.Message;
+        }
+    }
+
+}

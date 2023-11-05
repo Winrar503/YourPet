@@ -65,8 +65,4 @@
       <None Include="Pages\Login.razor" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Models\" />
-    </ItemGroup>
-
 </Project>

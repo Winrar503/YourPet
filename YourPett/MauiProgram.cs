@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.WebView.Maui;
 using YourPett.Data;
+using YourPett.Services;
 
 namespace YourPett;
 
@@ -16,8 +17,10 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddMauiBlazorWebView();
-		#if DEBUG
-		builder.Services.AddBlazorWebViewDeveloperTools();
+        builder.Services.AddSingleton<IUsuarioService, UsuarioService>();
+        builder.Services.AddScoped<IRegistroAnimalService, RegistroAnimalService>();
+#if DEBUG
+        builder.Services.AddBlazorWebViewDeveloperTools();
 #endif
 		
 		builder.Services.AddSingleton<WeatherForecastService>();
